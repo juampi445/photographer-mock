@@ -1,0 +1,190 @@
+@import '../../styles/variables.module.scss';
+
+.about {
+  padding: 120px 0 80px;
+  background: $secondary-bg;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.aboutImage {
+  position: relative;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.aboutImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.aboutImage:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(233, 69, 96, 0.1), rgba(24, 24, 27, 0.2));
+  pointer-events: none;
+}
+
+.aboutText {
+  color: $text-primary;
+}
+
+.aboutText h2 {
+  color: $accent;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.aboutText h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.aboutText p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+}
+
+.skills {
+  margin-top: 2rem;
+}
+
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.skillBar {
+  height: 8px;
+  background: $border-color;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillProgress {
+  height: 100%;
+  background: linear-gradient(90deg, $accent, #ff6b6b);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid $border-color;
+}
+
+.statItem {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: $card-bg;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.statItem h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $accent;
+  margin-bottom: 0.5rem;
+}
+
+.statItem p {
+  color: $text-secondary;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 0 60px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .aboutImage {
+    height: 400px;
+    order: -1;
+  }
+
+  .aboutText h3 {
+    font-size: 2rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .statItem {
+    padding: 1.5rem 1rem;
+  }
+
+  .statItem h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutText h3 {
+    font-size: 1.8rem;
+  }
+}

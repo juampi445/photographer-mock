@@ -1,0 +1,292 @@
+@import '../../styles/variables.module.scss';
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $primary-bg;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(24, 24, 27, 0.8) 0%,
+    rgba(24, 24, 27, 0.6) 50%,
+    rgba(233, 69, 96, 0.2) 100%
+  );
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  display: inline-block;
+  color: $accent;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid $accent;
+  border-radius: 50px;
+  background: rgba(233, 69, 96, 0.1);
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: $text-primary;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.accent {
+  color: $accent;
+  display: block;
+  background: linear-gradient(135deg, $accent 0%, #ff6b6b 50%, #ff9999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+  animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+.accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, $accent 0%, #ff6b6b 50%, transparent 100%);
+  border-radius: 2px;
+  opacity: 0.7;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0% {
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
+    filter: brightness(1);
+  }
+  100% {
+    text-shadow: 0 0 40px rgba(233, 69, 96, 0.8), 0 0 60px rgba(255, 107, 107, 0.4);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+}
+
+.description {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 180px;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, $accent 0%, #ff6b6b 100%);
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(233, 69, 96, 0.4);
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: $text-primary;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: $accent;
+  color: $accent;
+  transform: translateY(-3px);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scrollArrow {
+  width: 2px;
+  height: 30px;
+  background: $accent;
+  margin: 0.5rem auto 0;
+  position: relative;
+  animation: scroll 2s ease-in-out infinite;
+}
+
+.scrollArrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid $accent;
+}
+
+@keyframes scroll {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero {
+    min-height: 600px;
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .scrollIndicator {
+    bottom: 2rem;
+    font-size: 0.8rem;
+  }
+}
